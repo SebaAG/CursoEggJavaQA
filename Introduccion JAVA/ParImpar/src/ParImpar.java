@@ -6,10 +6,6 @@ public class ParImpar {
         System.out.println("Ingrese un numero:");
         int num = teclado.nextInt();
 
-        if (num % 2 == 0) {
-            System.out.println("Su numero es par.");
-        } if (num % 2 == 1) {
-            System.out.println("Su numero es impar.");
-        }
+        System.out.println((num % 2 == 0) ? "Su numero es par." : "Su numero es impar.");
     }
 }
