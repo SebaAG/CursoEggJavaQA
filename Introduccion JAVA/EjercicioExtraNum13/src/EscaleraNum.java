@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Main {
+public class EscaleraNum {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Ingrese altura de la escalera:");

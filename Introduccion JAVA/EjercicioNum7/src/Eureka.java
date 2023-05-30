@@ -6,10 +6,8 @@ public class Eureka {
         System.out.println("Ingrese una palabra:");
         String palabra = teclado.nextLine();
         palabra = palabra.toLowerCase();
-        if (palabra.equals("eureka")) {
-            System.out.println("CORRECTO");
-        } else {
-            System.out.println("INCORRECTO");
-        }
+
+        System.out.println((palabra.equals("eureka")) ? "CORRECTO" : "INCORRECTO");
+
     }
 }
