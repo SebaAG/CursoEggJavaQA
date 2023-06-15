@@ -46,7 +46,7 @@ public class Operacion {
     }
 
     public int multiplicar() {
-        if (num2 == 0) {
+        if (num1 == 0 || num2 == 0) {
             System.out.println("No se puede multiplicar por cero!");
             return 0;
         } else {
