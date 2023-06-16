@@ -25,8 +25,7 @@ public class Main {
         double distanciaAuto = auto.calcularDistanciaRecorrida(tiempo);
         double distanciaMoto = moto.calcularDistanciaRecorrida(tiempo);
         double distanciaBici = bici.calcularDistanciaRecorrida(tiempo);
-
-        // Determinar qué vehículo llegó más lejos
+        
         String vehiculoLejos;
         double distanciaLejos;
 
