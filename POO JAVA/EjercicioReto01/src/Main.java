@@ -20,5 +20,28 @@ public class Main {
         auto.frenar();
         moto.frenar();
         bici.frenar();
+
+        int tiempo = 300;
+        double distanciaAuto = auto.calcularDistanciaRecorrida(tiempo);
+        double distanciaMoto = moto.calcularDistanciaRecorrida(tiempo);
+        double distanciaBici = bici.calcularDistanciaRecorrida(tiempo);
+
+        // Determinar qué vehículo llegó más lejos
+        String vehiculoLejos;
+        double distanciaLejos;
+
+        if (distanciaAuto > distanciaMoto && distanciaAuto > distanciaBici) {
+            vehiculoLejos = "Ford KA";
+            distanciaLejos = distanciaAuto;
+        } else if (distanciaMoto > distanciaBici) {
+            vehiculoLejos = "Honda CBR";
+            distanciaLejos = distanciaMoto;
+        } else {
+            vehiculoLejos = "Bicicleta No Conozco";
+            distanciaLejos = distanciaBici;
+        }
+
+        System.out.println("El vehículo que llego mas lejos despues de frenar es: " + vehiculoLejos);
+        System.out.println("Distancia recorrida: " + distanciaLejos + " metros.");
     }
 }

@@ -3,7 +3,7 @@ class Vehiculo {
     private String modelo;
     private int anno;
     private String tipo;
-    private double veloc;
+    private int veloc;
 
     public Vehiculo(String marca, String modelo, int anno, String tipo) {
         this.marca = marca;
@@ -12,11 +12,11 @@ class Vehiculo {
         this.tipo = tipo;
 
         if (tipo.equalsIgnoreCase("automovil")) {
-            this.veloc = 3.0;
+            this.veloc = 3;
         } else if (tipo.equalsIgnoreCase("motocicleta")) {
-            this.veloc = 2.0;
+            this.veloc = 2;
         } else if (tipo.equalsIgnoreCase("bicicleta")) {
-            this.veloc = 1.0;
+            this.veloc = 1;
         } else {
             System.out.println("NONO.");
         }
@@ -36,5 +36,9 @@ class Vehiculo {
             System.out.println("El vehiculo " + marca + " " + modelo + " se freno y no avanzo mas " +
                     distanciaFrenado + " metros antes de detenerse.");
         }
+    }
+
+    public double calcularDistanciaRecorrida(int tiempo) {
+        return veloc * tiempo;
     }
 }
