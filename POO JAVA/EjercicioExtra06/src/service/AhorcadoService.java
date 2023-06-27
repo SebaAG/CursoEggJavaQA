@@ -10,10 +10,9 @@ public class AhorcadoService {
     private final Scanner tecla = new Scanner(System.in);
 
     public Ahorcado crearJuego() {
-        Ahorcado a1 = new Ahorcado();
+        Ahorcado ahorcado = new Ahorcado();
         String[] palabraSecreta;
         String[] palabraOculta;
-        int contador = 0;
         System.out.println("Ingrese la palabra secreta: ");
         String palabra = tecla.next();
         palabraSecreta = new String[palabra.length()];
@@ -23,12 +22,12 @@ public class AhorcadoService {
             palabraOculta[i] = "?";
         }
 
-        a1.setPalabraSecreta(palabraSecreta);
-        a1.setPalabraOculta(palabraOculta);
-        a1.setLetrasEncontradas(0);
-        a1.setJugadaMaxima(6);
+        ahorcado.setPalabraSecreta(palabraSecreta);
+        ahorcado.setPalabraOculta(palabraOculta);
+        ahorcado.setLetrasEncontradas(0);
+        ahorcado.setJugadaMaxima(6);
 
-        return a1;
+        return ahorcado;
     }
 
     public boolean verificarLetra(String letra, Ahorcado a1) {
@@ -66,8 +65,6 @@ public class AhorcadoService {
     public void empezarJuego() {
         String letra;
         Ahorcado game = crearJuego();
-        System.out.println("Aca va una pista, es una palabra de " + game.getPalabraSecreta().length + " letras.");
-        System.out.println();
         System.out.println(Arrays.toString(game.getPalabraOculta()));
         do {
             System.out.println("Ingrese una letra: ");

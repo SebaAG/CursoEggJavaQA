@@ -1,5 +1,4 @@
 package entidad;
-import java.util.Arrays;
 
 public class Ahorcado {
 
@@ -10,7 +9,7 @@ public class Ahorcado {
 
     public Ahorcado() {
     }
-    public Ahorcado(String[] palabraSecreta, String[] palabraOculta, int jugadaMaxima, int letrasEncontradas, int longitud) {
+    public Ahorcado(String[] palabraSecreta, String[] palabraOculta, int jugadaMaxima, int letrasEncontradas) {
         this.palabraSecreta = palabraSecreta;
         this.palabraOculta = palabraOculta;
         this.jugadaMaxima = jugadaMaxima;
