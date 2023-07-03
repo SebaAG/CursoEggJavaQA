@@ -10,7 +10,8 @@ public class MenuService {
     // Crear una instancia de PeliculaService con un límite de 5 películas
     PeliculaService peliService = new PeliculaService(5);
     // Crear una instancia de AlquilerService con un límite de 3 alquileres
-    AlquilerService alquiService = new AlquilerService(3);
+    // y se pasa una instancia de PeliculaService como parámetro para acceder a la funcionalidad de películas
+    AlquilerService alquiService = new AlquilerService(3, peliService);
     /**
      * Ejecuta el programa principal.
      */
@@ -62,44 +63,63 @@ public class MenuService {
             case 5 -> buscarPeliTitulo();
             case 6 -> buscarPeliGenero();
             case 7 -> buscarAlquilerFecha();
-            case 8 -> {
-                System.out.println("******Ticket******");
-                System.out.println("El Monto total del servicio es: " + alquiService.calcularPrecio());
-            }
+            case 8 -> precioTotal();
             case 9 -> System.out.println("Gracias por utilizar BlockBuster");
             default -> System.out.println("Haz ingresado una opción incorrecta");
         }
     }
     /**
+     * Carga los datos de una nueva película.
+     * Solicita al usuario el título, género, año y duración de la película y la crea utilizando
+     * el servicio correspondiente.
+     */
+    private void cargarPelicula() {
+        System.out.println("Ingresar título: ");
+        String titulo = read.nextLine();
+        System.out.println("Ingresa el género: ");
+        String genero = read.nextLine();
+        System.out.println("Año: ");
+        int anio = read.nextInt();
+        System.out.println("Duración: ");
+        int duracion = read.nextInt();
+        peliService.crearPelicula(titulo, genero, anio, duracion);
+    }
+    /**
      * Carga un nuevo alquiler de una película.
+     * Se verifica si la película está disponible para ser alquilada.
      * Solícita al usuario el título de la película a alquilar y las fechas de inicio y finalización del alquiler.
      * Si la película no se encuentra, se muestra un mensaje de error.
      */
     private void cargarAlquiler() {
-        System.out.println("Ingresa el título de la pelicula a alquilar");
+        System.out.println("Ingresa el título de la película a alquilar: ");
         String tituloAlquiler = read.nextLine();
         Pelicula peliculaAlquiler = peliService.buscarTitulo(tituloAlquiler);
         if (peliculaAlquiler == null) {
             System.out.println("Película no encontrada");
         } else {
-            System.out.println("Ingresa la fecha de Inicio");
-            System.out.println("Ingrese el día");
-            int dia = read.nextInt();
-            System.out.println("Ingrese el mes");
-            int mes = read.nextInt();
-            System.out.println("Ingrese el año");
-            int anio1 = read.nextInt();
-            LocalDate fechaIni = LocalDate.of(anio1, mes, dia);
-            System.out.println("Ingresa la fecha de Finalización");
-            System.out.println("Ingrese el día");
-            int diaFin = read.nextInt();
-            System.out.println("Ingrese el mes");
-            int mesFin = read.nextInt();
-            System.out.println("Ingrese el año");
-            int anioFin = read.nextInt();
-            LocalDate fechaFin = LocalDate.of(anioFin, mesFin, diaFin);
-            double precioAlquiler = 10.0;
-            alquiService.crearAlquiler(peliculaAlquiler, fechaIni, fechaFin, precioAlquiler);
+            boolean peliDisp = alquiService.verificarPeliAlquiler(peliculaAlquiler);
+            if (!peliDisp) {
+                System.out.println("La película no está disponible para alquilar");
+            } else {
+                System.out.println("Ingresa la fecha de Inicio: ");
+                System.out.println("Ingrese el día: ");
+                int dia = read.nextInt();
+                System.out.println("Ingrese el mes: ");
+                int mes = read.nextInt();
+                System.out.println("Ingrese el año: ");
+                int anio1 = read.nextInt();
+                LocalDate fechaIni = LocalDate.of(anio1, mes, dia);
+                System.out.println("Ingresa la fecha de Finalización: ");
+                System.out.println("Ingrese el día: ");
+                int diaFin = read.nextInt();
+                System.out.println("Ingrese el mes: ");
+                int mesFin = read.nextInt();
+                System.out.println("Ingrese el año: ");
+                int anioFin = read.nextInt();
+                LocalDate fechaFin = LocalDate.of(anioFin, mesFin, diaFin);
+                double precioAlquiler = 10.0;
+                alquiService.crearAlquiler(peliculaAlquiler.getTitulo(), fechaIni, fechaFin, precioAlquiler);
+            }
         }
     }
     /**
@@ -131,7 +151,7 @@ public class MenuService {
         if (encontrado.length == 0) {
             System.out.println("No hay películas de ese género");
         } else {
-            System.out.println("Las películas que se encontraron son");
+            System.out.println("Las películas que se encontraron son: ");
             mes2 = encontrado.length;
             for (anio2 = 0; anio2 < mes2; ++anio2) {
                 Pelicula peliculas = encontrado[anio2];
@@ -149,11 +169,11 @@ public class MenuService {
         int anio2;
         System.out.println("----- Buscar Alquiler por Fecha -----");
         System.out.println("Ingrese la fecha (dd/mm/aaaa): ");
-        System.out.println("Ingrese el día");
+        System.out.println("Ingrese el día: ");
         int dia2 = read.nextInt();
-        System.out.println("Ingrese el mes");
+        System.out.println("Ingrese el mes: ");
         mes2 = read.nextInt();
-        System.out.println("Ingrese el año");
+        System.out.println("Ingrese el año: ");
         anio2 = read.nextInt();
         LocalDate fechaBusqueda = LocalDate.of(anio2, mes2, dia2);
         Alquiler alquilerFecha = alquiService.buscarAlquiler(fechaBusqueda);
@@ -164,19 +184,20 @@ public class MenuService {
         }
     }
     /**
-     * Carga los datos de una nueva película.
-     * Solicita al usuario el título, género, año y duración de la película y la crea utilizando
-     * el servicio correspondiente.
+     * Calcula el precio total de los alquileres, teniendo en cuenta los recargos por retraso, y muestra el resultado si
+     * hay operaciones de cobro pendientes.
+     * Se utiliza el método calcularPrecio() de la instancia de AlquilerService para obtener
+     * el precio total de los alquileres.
+     * Si el precio total es mayor que cero, se muestra un ticket con el monto total del servicio. De lo contrario, se
+     * muestra un mensaje indicando que no hay operaciones de cobro pendientes.
      */
-    private void cargarPelicula() {
-        System.out.println("Ingresar título: ");
-        String titulo = read.nextLine();
-        System.out.println("Ingresa el género");
-        String genero = read.nextLine();
-        System.out.println("Año");
-        int anio = read.nextInt();
-        System.out.println("Duración");
-        int duracion = read.nextInt();
-        peliService.crearPelicula(titulo, genero, anio, duracion);
+    private void precioTotal() {
+        double ingresoTotal = alquiService.calcularPrecio();
+        if (ingresoTotal > 0.0) {
+            System.out.println("******Ticket******");
+            System.out.println("El Monto total del servicio es: " + ingresoTotal + " $");
+        } else {
+            System.out.println("No hay operaciones de cobro pendientes.");
+        }
     }
 }
