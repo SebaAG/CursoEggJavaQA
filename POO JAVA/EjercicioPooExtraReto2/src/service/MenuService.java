@@ -171,11 +171,11 @@ public class MenuService {
     private void cargarPelicula() {
         System.out.println("Ingresar título: ");
         String titulo = read.nextLine();
-        System.out.println("Ingresa el género");
+        System.out.println("Ingresa el género: ");
         String genero = read.nextLine();
-        System.out.println("Año");
+        System.out.println("Año: ");
         int anio = read.nextInt();
-        System.out.println("Duración");
+        System.out.println("Duración: ");
         int duracion = read.nextInt();
         peliService.crearPelicula(titulo, genero, anio, duracion);
     }
