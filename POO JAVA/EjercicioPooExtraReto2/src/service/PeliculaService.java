@@ -22,6 +22,8 @@ public class PeliculaService {
 
     /**
      * Crea una nueva película y la agrega al arreglo de películas.
+     * Se verifica si el límite máximo de películas fue alcanzado.
+     * Si el límite se ha alcanzado, se muestra un mensaje de error.
      *
      * @param titulo    El título de la película.
      * @param genero    El género de la película.
@@ -29,8 +31,12 @@ public class PeliculaService {
      * @param duracion  La duración en minutos de la película.
      */
     public void crearPelicula(String titulo, String genero, int anio, int duracion) {
+        if (filmCont < 5) {
         Pelicula peli1 = new Pelicula(titulo, genero, anio, duracion);
         peliculas[filmCont++] = peli1;
+        } else {
+            System.out.println("Máximo de películas permitidas!");
+        }
     }
     /**
      * Muestra en consola la lista de películas registradas.
