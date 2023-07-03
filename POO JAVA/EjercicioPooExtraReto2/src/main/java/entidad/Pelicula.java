@@ -27,6 +27,6 @@ public class Pelicula {
                 " Titulo de la pelicula: " + titulo + '\n' +
                 " Genero: " + genero + '\n' +
                 " Año de salida: " + anio + '\n' +
-                " Duracion total: " + duracion + '\n';
+                " Duracion total: " + duracion + " minutos" + '\n';
     }
 }

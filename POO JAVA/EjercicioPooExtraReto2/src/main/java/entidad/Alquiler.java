@@ -9,6 +9,10 @@ public class Alquiler {
     private final Pelicula pelicula;
     private Double precio;
 
+    public Pelicula getPelicula() {
+        return pelicula;
+    }
+
     public Alquiler(Pelicula pelicula, LocalDate fechaIni, LocalDate fechaFin, Double precio) {
         this.pelicula = pelicula;
         this.fechaIni = fechaIni;
@@ -16,12 +20,12 @@ public class Alquiler {
         this.precio = precio;
     }
 
-    public LocalDate getFechaIni() {
-        return fechaIni;
-    }
-
     public LocalDate getFechaFin() {
         return fechaFin;
+    }
+
+    public LocalDate getFechaIni() {
+        return fechaIni;
     }
 
     public Double getPrecio() {
@@ -41,6 +45,6 @@ public class Alquiler {
                 "Fecha inicio alquiler: " + fechaInicio + '\n' +
                 "Fecha de entrega: " + fechaEntrega + '\n' +
                 "Nombre de la pelicula: " + pelicula.getTitulo() + '\n' +
-                "Precio: " + precio + '\n';
+                "Precio: " + precio + " $" + '\n';
     }
 }
