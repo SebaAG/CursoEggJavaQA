@@ -1,6 +1,7 @@
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/test/**/target/
+POO JAVA/EjercicioPooExtraReto2/target/classes/
 
 ### IntelliJ IDEA ###
 *.iws
