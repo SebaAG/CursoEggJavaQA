@@ -5,7 +5,9 @@ import java.util.Scanner;
 public class MenuService {
     private static final Scanner tecla = new Scanner(System.in);
     private final CuentaService cs = new CuentaService();
-    // EJECUTA EL MENU DE OPCIONES EN EL METODO PRINCIPAL
+    /**
+     * Ejecuta el menú de opciones en el método principal.
+     */
     public void run() {
         int opc;
         do {
@@ -14,7 +16,9 @@ public class MenuService {
             ejectOpc(opc);
         } while (opc != 7);
     }
-    // SE MUESTRA EL MENU DE LA APP
+    /**
+     * Muestra el menú de la aplicación con las opciones disponibles.
+     */
     private static void showMenu() {
         System.out.println("""
                 
@@ -25,17 +29,20 @@ public class MenuService {
                 5.Extracción rápida
                 6.Consultar Datos
                 7.Salir""");
-
     }
-    // SE INGRESA EL NUMERO DESEADO PARA CADA OPCION DEL MENU
+    /**
+     * Obtiene el número de la opción seleccionada por el usuario.
+     * @return El número de la opción seleccionada.
+     */
     private static int obtOpc() {
-
         System.out.println("Seleccione que desea realizar: ");
         return tecla.nextInt();
     }
-    // SWITCH PARA EJECUTAR LA OPCIÓN SELECCIONADA
+    /**
+     * Ejecuta la opción seleccionada por el usuario.
+     * @param opc El número de la opción seleccionada.
+     */
     private void ejectOpc(int opc) {
-
         switch (opc) {
             case 1 -> System.out.println(cs.crearCuenta());
             case 2 -> System.out.println(cs.consultarSaldo());

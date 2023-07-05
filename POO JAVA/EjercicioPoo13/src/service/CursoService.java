@@ -7,9 +7,11 @@ import java.util.List;
 import java.util.Scanner;
 
 public class CursoService {
-    private Curso curso = new Curso();
+    private final Curso curso = new Curso();
     private static final Scanner tecla = new Scanner(System.in);
-
+    /**
+     * Permite al usuario ingresar los nombres de los alumnos y cargarlos en el curso.
+     */
     public void cargarAlumnos() {
         List<String> alumnos = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
@@ -20,7 +22,9 @@ public class CursoService {
         alumnosArray = alumnos.toArray(alumnosArray);
         curso.setAlumnos(alumnosArray);
     }
-
+    /**
+     * Permite al usuario crear un nuevo curso ingresando los datos correspondientes.
+     */
     public void crearCurso() {
         Scanner tecla = new Scanner(System.in);
         System.out.print("Ingresar nombre del curso: ");
@@ -43,7 +47,11 @@ public class CursoService {
 
         cargarAlumnos();
     }
-
+    /**
+     * Calcula la ganancia semanal del curso.
+     *
+     * @return la ganancia semanal del curso
+     */
     public double calcularGananciaSemanal() {
         return curso.getCantidadHorasPorDia() * curso.getPrecioPorHora() *
                 curso.getAlumnos().length * curso.getCantidadDiasPorSemana();

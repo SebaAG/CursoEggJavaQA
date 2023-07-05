@@ -17,22 +17,29 @@ public class MenuService {
     }
     // SE MUESTRA EL MENU DE LA APP
     private static void showMenu() {
-        System.out.println("*** MENU ***" + '\n' +
-                "1. CREAR PERSONA" + '\n' +
-                "2. MOSTRAR PERSONA" + '\n' +
-                "3. CALCULAR EDAD" + '\n' +
-                "4. SALIR");
+        System.out.println("""
+                *** MENU ***
+                1. CREAR PERSONA
+                2. MOSTRAR PERSONA
+                3. CALCULAR EDAD
+                4. SALIR""");
 
     }
-    // SE INGRESA EL NUMERO DESEADO PARA CADA OPCION DEL MENU
+    /**
+     * Obtiene la opción seleccionada por el usuario.
+     *
+     * @return la opción seleccionada
+     */
     private static int obtOpc() {
-
         System.out.println("Seleccione que desea realizar: ");
         return tecla.nextInt();
     }
-    // SWITCH PARA EJECUTAR LA OPCIÓN SELECCIONADA
+    /**
+     * Ejecuta la opción seleccionada por el usuario.
+     *
+     * @param opc la opción seleccionada
+     */
     private void ejectOpc(int opc) {
-
         switch (opc) {
             case 1 -> service.crearPersona();
             case 2 -> service.mostrarPersona();

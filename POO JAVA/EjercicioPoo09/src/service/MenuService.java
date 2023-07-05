@@ -2,9 +2,16 @@ package service;
 
 import java.util.Scanner;
 
+/**
+ * Clase que proporciona un menú de opciones para interactuar con la clase MatematicaService.
+ */
 public class MenuService {
     MatematicaService service = new MatematicaService();
     private static final Scanner tecla = new Scanner(System.in);
+
+    /**
+     * Ejecuta el menú de la aplicación y realiza las operaciones seleccionadas.
+     */
     public void run() {
         int opc;
         do {
@@ -13,7 +20,10 @@ public class MenuService {
             ejectOpc(opc);
         } while (opc != 6);
     }
-    // SE MUESTRA EL MENU DE LA APP
+
+    /**
+     * Muestra el menú de opciones en pantalla.
+     */
     private static void showMenu() {
         System.out.println("""
                 *** MENU ***
@@ -23,15 +33,24 @@ public class MenuService {
                 4. CALCULAR POTENCIA
                 5. CALCULAR RAIZ
                 6. SALIR""");
-
     }
-    // SE INGRESA EL NUMERO DESEADO PARA CADA OPCION DEL MENU
+
+    /**
+     * Obtiene la opción seleccionada por el usuario.
+     *
+     * @return El número de la opción seleccionada.
+     */
     private static int obtOpc() {
 
         System.out.println("Seleccione que desea realizar: ");
         return tecla.nextInt();
     }
-    // SWITCH PARA EJECUTAR LA OPCIÓN SELECCIONADA
+
+    /**
+     * Ejecuta la opción seleccionada por el usuario.
+     *
+     * @param opc El número de la opción seleccionada.
+     */
     private void ejectOpc(int opc) {
         switch (opc) {
             case 1 -> service.agregarNumeros();

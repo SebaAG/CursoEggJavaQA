@@ -8,12 +8,6 @@ public class Cuenta {
     public Cuenta() {
     }
 
-    public Cuenta(int numCuenta, long dni, int saldoActual){
-        this.numCuenta = numCuenta;
-        this.dni = dni;
-        this.saldoActual = saldoActual;
-    }
-
     public int getNumCuenta() {
         return numCuenta;
     }

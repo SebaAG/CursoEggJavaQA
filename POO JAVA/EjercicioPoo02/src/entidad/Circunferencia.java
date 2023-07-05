@@ -4,7 +4,6 @@ public class Circunferencia {
     private double radio;
 
     public Circunferencia() {
-        this.radio = radio;
     }
 
     public double getRadio() {

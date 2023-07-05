@@ -15,12 +15,13 @@ public class MenuService {
     }
     // SE MUESTRA EL MENU DE LA APP
     private static void showMenu() {
-        System.out.println("*** MENU ***" + '\n' +
-                "1. CREAR RECTANGULO" + '\n' +
-                "2. CALCULAR SUPERFICIE" + '\n' +
-                "3. CALCULAR PERIMETRO" + '\n' +
-                "4. DIBUJAR RECTA" + '\n' +
-                "5. SALIR");
+        System.out.println("""
+                *** MENU ***
+                1. CREAR RECTANGULO
+                2. CALCULAR SUPERFICIE
+                3. CALCULAR PERIMETRO
+                4. DIBUJAR RECTA
+                5. SALIR""");
 
 
     }

@@ -1,17 +1,29 @@
 package service;
 
 import entidad.Cadena;
-
 import java.util.Scanner;
 
+/**
+
+ Esta clase proporciona un menú de opciones para interactuar con la clase CadenaService.
+ */
 public class MenuService {
     private final Cadena cadena = new Cadena();
-    private CadenaService service = new CadenaService(cadena);
+    private final CadenaService service;
     private static final Scanner tecla = new Scanner(System.in);
 
+    /**
+
+     Constructor de la clase MenuService.
+     Inicializa un objeto de la clase CadenaService.
+     */
     public MenuService() {
         this.service = new CadenaService(cadena);
     }
+    /**
+
+     Ejecuta el menú de la aplicación y realiza las operaciones seleccionadas.
+     */
     public void run() {
         int opc;
         do {
@@ -20,27 +32,36 @@ public class MenuService {
             ejectOpc(opc);
         } while (opc != 8);
     }
+    /**
 
-    // SE MUESTRA EL MENU DE LA APP
-    private static void showMenu() {
-        System.out.println("*** MENU ***" + '\n' +
-                "1. INGRESAR FRASE" + '\n' +
-                "2. MOSTRAR VOCALES" + '\n' +
-                "3. INVERTIR FRASE" + '\n' +
-                "4. CANTIDAD DE VECES QUE SE REPITE EL CARACTER EN LA FRASE" + '\n' +
-                "5. INGRESAR OTRA FRASE PARA COMPARAR LONGITUD" + '\n' +
-                "6. UNIR FRASES" + '\n' +
-                "7. REEMPLAZAR LA LETRA 'A' DE LA PRIMERA FRASE" + '\n' +
-                "8. SALIR");
-    }
+     Muestra el menú de opciones en pantalla.
+     */
+     private static void showMenu() {
+     System.out.println("""
+             ** MENU ***
+             1. INGRESAR FRASE
+             2. MOSTRAR VOCALES
+             3. INVERTIR FRASE
+             4. CANTIDAD DE VECES QUE SE REPITE EL CARACTER EN LA FRASE
+             5. INGRESAR OTRA FRASE PARA COMPARAR LONGITUD
+             6. UNIR FRASES
+             7. REEMPLAZAR LA LETRA 'A' DE LA PRIMERA FRASE
+             8. SALIR""");
+     }
+     /**
 
-    // SE INGRESA EL NUMERO DESEADO PARA CADA OPCION DEL MENU
+     Obtiene la opción seleccionada por el usuario.
+     @return El número de la opción seleccionada.
+     */
     private static int obtOpc() {
         System.out.println("Seleccione qué desea realizar: ");
         return tecla.nextInt();
     }
+    /**
 
-    // SWITCH PARA EJECUTAR LA OPCIÓN SELECCIONADA
+     Ejecuta la opción seleccionada por el usuario.
+     @param opc El número de la opción seleccionada.
+     */
     private void ejectOpc(int opc) {
         switch (opc) {
             case 1:

@@ -7,7 +7,9 @@ import java.util.Scanner;
 public class PersonaService {
     private final static Scanner tecla = new Scanner(System.in);
     private final Persona person = new Persona();
-
+    /**
+     * Crea una nueva persona solicitando al usuario que ingrese su nombre, edad, sexo, peso y altura.
+     */
     public void crearPersona() {
         System.out.println("Ingrese nombre: ");
         person.setNombre(tecla.nextLine());
@@ -29,7 +31,11 @@ public class PersonaService {
         person.setAltura(tecla.nextDouble());
         tecla.nextLine(); // Agregar esta línea para consumir el carácter de nueva línea pendiente
     }
-
+    /**
+     * Calcula el índice de masa corporal (IMC) de la persona y devuelve el resultado.
+     * @return -1 si el IMC es menor a 20 (bajo peso), 0 si el IMC está entre 20 y 25 (peso ideal),
+     *         1 si el IMC es mayor a 25 (sobrepeso).
+     */
     public int calcularIMC() {
         double imc = person.getPeso() / (person.getAltura() * person.getAltura());
 
@@ -41,7 +47,10 @@ public class PersonaService {
             return 1;
         }
     }
-
+    /**
+     * Verifica si la persona es mayor de edad.
+     * @return true si la persona es mayor de edad, false en caso contrario.
+     */
     public boolean esMayor() {
         return person.getEdad() >= 18;
     }

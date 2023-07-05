@@ -8,20 +8,9 @@ public class Persona {
     private double peso;
     private double altura;
 
-    public Persona(String nombre, int edad, char sexo, double peso, double altura) {
-        this.nombre = nombre;
-        this.edad = edad;
-        this.sexo = sexo;
-        this.peso = peso;
-        this.altura = altura;
-    }
-
     public Persona(){
     }
 
-    public String getNombre(){
-        return nombre;
-    }
     public int getEdad() {
         return edad;
     }

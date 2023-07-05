@@ -6,11 +6,6 @@ public class Rectangulo {
     private BigDecimal base;
     private BigDecimal altura;
 
-    public Rectangulo(BigDecimal base, BigDecimal altura) {
-        this.base = base;
-        this.altura = altura;
-    }
-
     public Rectangulo() {
 
     }
