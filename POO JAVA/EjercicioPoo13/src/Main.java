@@ -1,8 +1,10 @@
+import service.CursoService;
+
 public class Main {
     public static void main(String[] args) {
-        Curso curso = new Curso();
-        curso.crearCurso();
+        CursoService cursoService = new CursoService();
+        cursoService.crearCurso();
 
-        System.out.println("Ganancia semanal del curso: " + curso.calcularGananciaSemanal() + " $");
+        System.out.println("Ganancia semanal: " + cursoService.calcularGananciaSemanal());
     }
 }

@@ -1,7 +1,12 @@
+import entidad.Celular;
+import service.CelularService;
+
 public class Main {
     public static void main(String[] args) {
-        Celular cel = new Celular();
-        cel.crearCelular();
-        System.out.println(cel.toString());
+        CelularService service = new CelularService();
+        service.crearCelular();
+
+        Celular celular = service.getCelu();
+        System.out.println(celular.toString());
     }
 }

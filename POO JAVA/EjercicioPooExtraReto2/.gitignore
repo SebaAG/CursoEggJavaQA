@@ -1,33 +1,10 @@
-### IntelliJ IDEA ###
-out/
-!**/src/main/**/out/
-!**/src/test/**/out/
-.idea/
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/test/**/target/
+POO JAVA/EjercicioPooExtraReto2/target/classes/
 
-### Eclipse ###
-.apt_generated
-.classpath
-.factorypath
-.project
-.settings
-.springBeans
-.sts4-cache
-bin/
-!**/src/main/**/bin/
-!**/src/test/**/bin/
-
-### NetBeans ###
-/nbproject/private/
-/nbbuild/
-/dist/
-/nbdist/
-/.nb-gradle/
-
-### VS Code ###
-.vscode/
-
-### Mac OS ###
-.DS_Store
+### IntelliJ IDEA ###
+*.iws
+*.iml
+*.ipr
+.idea/

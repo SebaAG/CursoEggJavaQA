@@ -1,5 +1,6 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Main {
@@ -9,19 +10,19 @@ public class Main {
         System.out.print("Ingresar el dia: ");
         int dia = tecla.nextInt();
         System.out.print("Ingresar el mes: ");
-        int mes = tecla.nextInt() - 1;
+        int mes = tecla.nextInt();
         System.out.print("Ingresar el año: ");
-        int anno = tecla.nextInt() - 1900;
+        int anno = tecla.nextInt();
 
-        Date fecha = new Date(anno, mes, dia);
-        Date fechaActual = new Date();
+        LocalDate fecha = LocalDate.of(anno, mes, dia);
+        LocalDate fechaActual = LocalDate.now();
 
-        long dife = fechaActual.getTime() - fecha.getTime();
-        long difeAnno = dife / (1000L * 60 * 60 * 24 * 365);
+        Period periodo = Period.between(fecha, fechaActual);
+        int difeAnno = periodo.getYears();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("EEE MMM dd yyyy");
-        String fechaDif = sdf.format(fecha);
-        String fechaActualDif = sdf.format(fechaActual);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("EEE MMM dd yyyy");
+        String fechaDif = fecha.format(formatter);
+        String fechaActualDif = fechaActual.format(formatter);
 
         System.out.println("Fecha ingresada por el usuario: " + fechaDif);
         System.out.println("Fecha actual: " + fechaActualDif);

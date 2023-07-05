@@ -1,7 +1,10 @@
+import entidad.Libro;
+import service.LibroService;
+
 public class Main {
     public static void main(String[] args) {
-        Libro libro = new Libro();
-        libro.cargaLibro();
-        libro.mostrarInfo();
+        LibroService servicio = new LibroService();
+        Libro libro = servicio.cargaLibro();
+        System.out.println(libro.toString());
     }
 }
