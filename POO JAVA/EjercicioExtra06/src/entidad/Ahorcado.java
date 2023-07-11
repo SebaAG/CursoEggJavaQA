@@ -6,6 +6,7 @@ public class Ahorcado {
     private String[] palabraOculta;
     private int jugadaMaxima;
     private int letrasEncontradas;
+    private int intentosFallidos;
 
     public Ahorcado() {
     }
@@ -15,6 +16,14 @@ public class Ahorcado {
         this.jugadaMaxima = jugadaMaxima;
         this.letrasEncontradas = letrasEncontradas;
 
+    }
+
+    public int getIntentosFallidos() {
+        return intentosFallidos;
+    }
+
+    public void setIntentosFallidos(int intentosFallidos) {
+        this.intentosFallidos = intentosFallidos;
     }
 
     public void setPalabraSecreta(String[] palabraSecreta) {

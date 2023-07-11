@@ -25,41 +25,42 @@ public class AhorcadoService {
         ahorcado.setPalabraSecreta(palabraSecreta);
         ahorcado.setPalabraOculta(palabraOculta);
         ahorcado.setLetrasEncontradas(0);
-        ahorcado.setJugadaMaxima(6);
+        ahorcado.setJugadaMaxima(7);
 
         return ahorcado;
     }
 
-    public boolean verificarLetra(String letra, Ahorcado a1) {
+    public boolean verificarLetra(String letra, Ahorcado ahorcado) {
         boolean letraEncontrada = false;
-        for (int i = 0; i < a1.getPalabraSecreta().length; i++) {
-            if (a1.getPalabraSecreta()[i].equalsIgnoreCase(letra)) {
+        for (int i = 0; i < ahorcado.getPalabraSecreta().length; i++) {
+            if (ahorcado.getPalabraSecreta()[i].equalsIgnoreCase(letra)) {
                 letraEncontrada = true;
-                a1.setLetrasEncontradas(a1.getLetrasEncontradas() + 1);
-                System.out.println(a1.getLetrasEncontradas());
+                ahorcado.setLetrasEncontradas(ahorcado.getLetrasEncontradas() + 1);
+                System.out.println(ahorcado.getLetrasEncontradas());
             }
         }
         return letraEncontrada;
     }
 
-    public boolean palabraCompleta(Ahorcado a1) {
-        return a1.getLetrasEncontradas() == a1.getPalabraSecreta().length;
+    public boolean palabraCompleta(Ahorcado ahorcado) {
+        return ahorcado.getLetrasEncontradas() == ahorcado.getPalabraSecreta().length;
     }
 
-    public void reducirJugada(Ahorcado a1) {
-        a1.setJugadaMaxima(a1.getJugadaMaxima() - 1);
-        System.out.println("Te quedan " + a1.getJugadaMaxima() + " intentos.");
+    public void reducirJugada(Ahorcado ahorcado) {
+        ahorcado.setJugadaMaxima(ahorcado.getJugadaMaxima() - 1);
+        ahorcado.setIntentosFallidos(ahorcado.getIntentosFallidos() + 1); // Incrementar el contador de intentos fallidos
+        System.out.println("Te quedan " + ahorcado.getJugadaMaxima() + " intentos.");
     }
 
-    public void actualizarPalabraSecreta(String letra, Ahorcado a1) {
-        String[] palabraOculta = a1.getPalabraOculta();
-        for (int i = 0; i < a1.getPalabraSecreta().length; i++) {
-            if (a1.getPalabraOculta()[i].equals("?") && a1.getPalabraSecreta()[i].equalsIgnoreCase(letra)) {
+    public void actualizarPalabraSecreta(String letra, Ahorcado ahorcado) {
+        String[] palabraOculta = ahorcado.getPalabraOculta();
+        for (int i = 0; i < ahorcado.getPalabraSecreta().length; i++) {
+            if (ahorcado.getPalabraOculta()[i].equals("?") && ahorcado.getPalabraSecreta()[i].equalsIgnoreCase(letra)) {
                 palabraOculta[i] = letra;
             }
         }
         System.out.print("Palabra oculta actualizada: ");
-        System.out.println(Arrays.toString(a1.getPalabraOculta()));
+        System.out.println(Arrays.toString(ahorcado.getPalabraOculta()));
     }
 
     public void empezarJuego() {
@@ -75,7 +76,66 @@ public class AhorcadoService {
             } else {
                 System.out.println("La letra no se encuentra en la palabra");
                 reducirJugada(game);
+                mostrarDibujo(game); // Mostrar el dibujo del hombre
             }
         } while (!palabraCompleta(game) && game.getJugadaMaxima() != 0);
+
+        if (game.getJugadaMaxima() == 0) {
+            System.out.println("Has perdido. El hombre ha sido ahorcado.");
+
+        }
+    }
+
+    public void mostrarDibujo(Ahorcado ahorcado) {
+        int intentosFallidos = ahorcado.getIntentosFallidos();
+
+        String[] dibujo = {
+                "  +---+",
+                "  |   |",
+                "      |",
+                "      |",
+                "      |",
+                "      |",
+                "========="
+        };
+
+        switch (intentosFallidos) {
+            case 1 -> dibujo[2] = "  O   |";
+            case 2 -> {
+                dibujo[2] = "  O   |";
+                dibujo[3] = "  |   |";
+            }
+            case 3 -> {
+                dibujo[2] = "  O   |";
+                dibujo[3] = " \\|   |";
+            }
+            case 4 -> {
+                dibujo[2] = "  O   |";
+                dibujo[3] = " \\|/  |";
+            }
+            case 5 -> {
+                dibujo[2] = "  O   |";
+                dibujo[3] = " \\|/  |";
+                dibujo[4] = "  |   |";
+            }
+            case 6 -> {
+                dibujo[2] = "  O   |";
+                dibujo[3] = " \\|/  |";
+                dibujo[4] = "  |   |";
+                dibujo[5] = " /    |";
+            }
+            case 7 -> {
+                dibujo[2] = "  O   |";
+                dibujo[3] = " \\|/  |";
+                dibujo[4] = "  |   |";
+                dibujo[5] = " / \\  |";
+            }
+            default -> {
+            }
+        }
+
+        for (String linea : dibujo) {
+            System.out.println(linea);
+        }
     }
 }
