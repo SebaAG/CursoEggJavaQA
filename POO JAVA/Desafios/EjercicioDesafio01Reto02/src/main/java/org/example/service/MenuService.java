@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.entidad.Figuras;
-
 import java.util.Scanner;
 
 public class MenuService {

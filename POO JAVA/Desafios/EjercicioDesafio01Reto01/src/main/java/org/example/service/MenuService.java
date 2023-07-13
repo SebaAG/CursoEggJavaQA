@@ -1,7 +1,6 @@
 package org.example.service;
 
 import org.example.entidad.Vehiculo;
-
 import java.util.Scanner;
 
 public class MenuService {

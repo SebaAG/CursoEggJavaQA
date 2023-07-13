@@ -44,7 +44,6 @@ public class AlquilerService {
             System.out.println("La película no existe.");
             return;
         }
-
         boolean peliDisp = true;
         for (int i = 0; i < alqCont; i++) {
             if (alquiler[i].getPelicula().equals(pelicula)) {

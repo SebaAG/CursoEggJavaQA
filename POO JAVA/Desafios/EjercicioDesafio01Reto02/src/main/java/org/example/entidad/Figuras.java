@@ -1,6 +1,5 @@
 package org.example.entidad;
 
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
