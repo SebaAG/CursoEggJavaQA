@@ -54,7 +54,7 @@ public class AlquilerService {
         }
         if (peliDisp) {
             if (alqCont < alquiler.length) {
-                Alquiler alq1 = new Alquiler(pelicula, fechaIni, fechaFin, precio);
+                Alquiler alq1 = new Alquiler(fechaIni, fechaFin, pelicula, precio);
                 alquiler[alqCont++] = alq1;
             } else {
                 System.out.println("No se puede agregar el alquiler. El límite ha sido alcanzado.");
