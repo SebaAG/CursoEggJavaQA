@@ -22,6 +22,9 @@ public class MenuPrincipal {
                 1. CLIENTES
                 2. RUTINAS
                 3. SALIR""");
+
+        System.out.println("""
+                """);
     }
 
     private static int obtOpc() {

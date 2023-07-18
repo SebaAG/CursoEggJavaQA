@@ -25,4 +25,5 @@ public interface ClienteService {
     List<Cliente> obtenerClientes();
     Optional<Cliente> actualizarCliente(UUID id, String nombre, int edad, double altura, double peso, String objetivo);
     boolean eliminarCliente(UUID id);
+
 }
