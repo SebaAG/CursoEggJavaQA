@@ -21,4 +21,7 @@ El repositorio contiene los siguientes tipos de ejercicios:
 - Constructores
 - Métodos y variables estáticas
 
+**Ejercicios de test unitarios:**
+- JUnit
+
 Puedes encontrar los ejercicios completados en cada carpeta respectiva.
