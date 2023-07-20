@@ -1,8 +1,8 @@
 import org.example.DiscountCalculator;
 import org.junit.Test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThrows;
+import static org.junit.Assert.*;
+
 
 public class DiscountCalculatorTest {
 
@@ -14,7 +14,7 @@ public class DiscountCalculatorTest {
         DiscountCalculator dc = new DiscountCalculator();
         double originalPrice = 100.0;
         double discountPercentage = 75.0;
-        double expectedPrice = 25.0;
+        double expectedPrice = 26.0;
 
         double discountedPrice = dc.calculateDiscount(originalPrice, discountPercentage);
 

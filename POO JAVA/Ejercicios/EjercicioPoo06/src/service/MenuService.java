@@ -41,19 +41,23 @@ public class MenuService {
      */
     private void ejectOpc(int opc) {
         switch (opc) {
-            case 1 -> {
-                System.out.println("Ingrese la cantidad de café a agregar (máxima cantidad 1000ml): ");
-                int cantidad = tecla.nextInt();
-                cs.agregarCafe(cantidad);
-            }
-            case 2 -> {
-                System.out.println("Ingrese la cantidad de café a servir: ");
-                int taza = tecla.nextInt();
-                cs.servirCafe(taza);
-            }
+            case 1 -> agregarCafe();
+            case 2 -> servirCafe();
             case 3 -> cs.vaciarCafetera();
             case 4 -> System.out.println("Adios!");
             default -> System.out.println("Opción invalida.");
         }
+    }
+
+    private void servirCafe() {
+        System.out.println("Ingrese la cantidad de café a servir: ");
+        int taza = tecla.nextInt();
+        cs.servirCafe(taza);
+    }
+
+    private void agregarCafe() {
+        System.out.println("Ingrese la cantidad de café a agregar (máxima cantidad 1000ml): ");
+        int cantidad = tecla.nextInt();
+        cs.agregarCafe(cantidad);
     }
 }

@@ -26,7 +26,8 @@ target/
 /POO JAVA/EjercicioExtra05/out/
 /POO JAVA/EjercicioExtra06/out/
 /POO JAVA/.idea/
-/JUnit/idea/
+/JUnit/.idea/
+/Colecciones/.idea/
 
 ### IntelliJ IDEA ###
 *.iws
