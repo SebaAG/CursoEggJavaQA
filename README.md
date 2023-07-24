@@ -1,6 +1,6 @@
 ## Ejercicios completos en Java
 
-Este repositorio contiene una colección de ejercicios completados en Java, organizados en cuatro carpetas principales:
+Este repositorio contiene una colección de ejercicios completados en Java, organizados en cuatro carpetas principales.
 
 
 El repositorio contiene los siguientes tipos de ejercicios:
