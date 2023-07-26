@@ -73,7 +73,7 @@ public class RazaPerros {
         if (razasPerros.isEmpty()) {
             System.out.println("La lista de razas de perros está vacía. No hay perros para eliminar.");
         } else {
-            System.out.println("Ingrese el nombre del perro que desea eliminar: ");
+            System.out.println("Ingrese el nombre de la raza que desea eliminar: ");
             String perroEliminar = tecla.next();
             Iterator<String> iterator = razasPerros.iterator();
             boolean encontrado = false;
@@ -85,9 +85,9 @@ public class RazaPerros {
                 }
             }
             if (encontrado) {
-                System.out.println("Perro '" + perroEliminar + "' eliminado correctamente.");
+                System.out.println("Raza '" + perroEliminar + "' eliminado correctamente.");
             } else {
-                System.out.println("El perro '" + perroEliminar + "' no se encuentra en la lista.");
+                System.out.println("La raza '" + perroEliminar + "' no se encuentra en la lista.");
             }
         }
     }
