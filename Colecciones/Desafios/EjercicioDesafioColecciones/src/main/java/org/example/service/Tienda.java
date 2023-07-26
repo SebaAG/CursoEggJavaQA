@@ -19,7 +19,7 @@ public class Tienda {
     }
 
     public boolean venta(String productoNombre) {
-        if (productoNombre == null || productoNombre.trim().isEmpty()) {
+        if (productoNombre == null || productoNombre.isEmpty()) {
             System.out.println("**ERROR** - NOMBRE INVÁLIDO");
             return false;
         }
@@ -39,7 +39,7 @@ public class Tienda {
     }
 
     public void reposicion(String nombreProducto) {
-        if (nombreProducto == null || nombreProducto.trim().isEmpty()) {
+        if (nombreProducto == null || nombreProducto.isEmpty()) {
             System.out.println("**ERROR** - NOMBRE INVÁLIDO");
             return;
         }
@@ -64,7 +64,7 @@ public class Tienda {
     }
 
     public void eliminarProducto(String productoNombre) {
-        if (productoNombre == null || productoNombre.trim().isEmpty()) {
+        if (productoNombre == null || productoNombre.isEmpty()) {
             System.out.println("**ERROR** - NOMBRE INVÁLIDO");
             return;
         }
