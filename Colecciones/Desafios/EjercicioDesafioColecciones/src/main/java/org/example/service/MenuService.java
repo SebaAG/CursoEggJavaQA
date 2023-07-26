@@ -7,8 +7,8 @@ import java.util.Scanner;
 
 public class MenuService {
 
-    private static Scanner tecla = new Scanner(System.in);
-    private Tienda tienda = new Tienda(new ArrayList<>());
+    private static final Scanner tecla = new Scanner(System.in);
+    private final Tienda tienda = new Tienda(new ArrayList<>());
 
     public void run() {
         int opc;
@@ -39,27 +39,13 @@ public class MenuService {
 
     private void ejectOpc(int opc) {
         switch (opc) {
-            case 1:
-                agregarProducto(tienda);
-                break;
-            case 2:
-                ventaProducto(tienda);
-                break;
-            case 3:
-                reposicionProducto(tienda);
-                break;
-            case 4:
-                eliminarProducto(tienda);
-                break;
-            case 5:
-                mostrarProductos(tienda);
-                break;
-            case 6:
-                System.out.println("Adios!");
-                break;
-            default:
-                System.out.println("Opción invalida.");
-                break;
+            case 1 -> agregarProducto(tienda);
+            case 2 -> ventaProducto(tienda);
+            case 3 -> reposicionProducto(tienda);
+            case 4 -> eliminarProducto(tienda);
+            case 5 -> mostrarProductos(tienda);
+            case 6 -> System.out.println("Adios!");
+            default -> System.out.println("Opción invalida.");
         }
     }
 
