@@ -18,11 +18,11 @@ public class Producto {
 
     @Override
     public String toString() {
-        return
+        return  "-------------------------" + '\n' +
                 "Nombre de Producto: " + nombre + '\n' +
                 "Categoría: " + categoria + '\n' +
                 "Precio: " + precio + '\n' +
-                "Cantidad en inventario: " + cantInventario ;
-
+                "Cantidad en inventario: " + cantInventario + '\n' +
+                "-------------------------" ;
     }
 }
