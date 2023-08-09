@@ -8,6 +8,7 @@ import org.example.entity.Reserva;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class HotelService {
 
@@ -15,7 +16,6 @@ public class HotelService {
     private List<Habitacion> habitaciones = new ArrayList<>();
     private List<Reserva> reservas = new ArrayList<>();
     private List<Alojamiento> alojamientos = new ArrayList<>();
-    int reservaIdCont = 1;
     private static Scanner tecla = new Scanner(System.in);
 
     public void crearPersona() {
@@ -79,8 +79,10 @@ public class HotelService {
         System.out.println("Cantidad de personas: ");
         int cantPersonas = tecla.nextInt();
         tecla.nextLine();
-        System.out.println("Fechas (dd/MM/yyyy): ");
-        String fechas = tecla.nextLine();
+        System.out.println("Fecha de entrada (dd/MM/yyyy): ");
+        String fechaEntrada = tecla.nextLine();
+        System.out.println("Fecha de salida (dd/MM/yyyy): ");
+        String fechaSalida = tecla.nextLine();
         if (cantPersonas > 3 && (numHabitacion >= 6 && numHabitacion <= 8)) {
             System.out.println("La cantidad de personas no es válida para esta habitación.");
             return;
@@ -89,10 +91,9 @@ public class HotelService {
             System.out.println("La cantidad de personas no es válida para esta habitación.");
             return;
         }
-        reservas.add(new Reserva(reservaIdCont, numHabitacion, cantPersonas, fechas));
-        habitacion.setFechaOcupa(fechas);
+        reservas.add(new Reserva(UUID.randomUUID(), numHabitacion, cantPersonas, fechaEntrada, fechaSalida));
+        habitacion.setFechaOcupa(fechaEntrada + " - " + fechaSalida);
         System.out.println("Reserva creada exitosamente.");
-        reservaIdCont++;
     }
 
     public void mostrarReservas() {
@@ -105,11 +106,17 @@ public class HotelService {
 
     public void crearAlojamiento() {
         System.out.print("ID de Reserva: ");
-        int reservaId = tecla.nextInt();
-        tecla.nextLine();  // Consumir nueva línea
+        String reservaIdStr = tecla.nextLine();
+        UUID reservaId;
+        try {
+            reservaId = UUID.fromString(reservaIdStr);
+        } catch (IllegalArgumentException e) {
+            System.out.println("ID de reserva no válido.");
+            return;
+        }
         boolean reservaEncontrada = false;
         for (Reserva reserva : reservas) {
-            if (reserva.getId() == reservaId) {
+            if (reserva.getId().equals(reservaId)) {
                 alojamientos.add(new Alojamiento(reservaId));
                 System.out.println("***** ALOJAMIENTO CREADO *****");
                 reservaEncontrada = true;

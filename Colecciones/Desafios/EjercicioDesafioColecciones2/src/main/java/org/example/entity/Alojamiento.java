@@ -2,6 +2,8 @@ package org.example.entity;
 
 import lombok.*;
 
+import java.util.UUID;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -9,7 +11,7 @@ import lombok.*;
 @EqualsAndHashCode
 public class Alojamiento {
 
-    private int reservaId;
+    private UUID reservaId;
 
     @Override
     public String toString() {
