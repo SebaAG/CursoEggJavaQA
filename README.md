@@ -28,4 +28,6 @@ El repositorio contiene los siguientes tipos de ejercicios:
 - Map
 - Set
 
+**Ejercicios de Relaciones entre clases:**
+
 Puedes encontrar los ejercicios completados en cada carpeta respectiva.
