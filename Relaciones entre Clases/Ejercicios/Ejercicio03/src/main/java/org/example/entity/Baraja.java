@@ -7,19 +7,19 @@ import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 public class Baraja {
 
-    private ArrayList<Carta> cartas;
-    private ArrayList<Carta> pozo;
+    private List<Carta> cartas = new ArrayList<>();
+    private List<Carta> pozo = new ArrayList<>();
 
-    public Baraja() {
-        cartas = new ArrayList<>();
-        pozo = new ArrayList<>();
-        for (int numero = 1; numero <= 12; numero++) {
+    public Baraja(int numeroCartas) {
+        for (int numero = 1; numero <= numeroCartas; numero++) {
             for (Carta.Palo palo : Carta.Palo.values()) {
                 if (numero != 8 && numero != 9) {
                     cartas.add(new Carta(numero, palo));
@@ -47,8 +47,8 @@ public class Baraja {
         return cartas.size();
     }
 
-    public ArrayList<Carta> darCartas(int cant) {
-        ArrayList<Carta> cartasDadas = new ArrayList<>();
+    public List<Carta> darCartas(int cant) {
+        List<Carta> cartasDadas = new ArrayList<>();
         if (cartasDisponibles() >= cant) {
             for (int i = 0; i < cant; i++) {
                 cartasDadas.add(siguienteCarta());
@@ -62,11 +62,11 @@ public class Baraja {
     public void cartasMonton() {
         if (!pozo.isEmpty()) {
             System.out.println("CARTAS EN EL POZO: ");
-            for (Carta carta : cartas) {
+            for (Carta carta : pozo) {
                 System.out.println(carta);
             }
         } else {
-            System.out.println("No hay ninguna carta!");
+            System.out.println("No hay ninguna carta en el pozo!");
         }
     }
 
