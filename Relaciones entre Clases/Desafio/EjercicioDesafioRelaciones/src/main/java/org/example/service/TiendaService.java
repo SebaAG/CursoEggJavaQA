@@ -53,7 +53,8 @@ public class TiendaService {
 
     public void mostrarTiendas() {
         for (Tienda tienda : tiendas) {
-            System.out.println("ID Tienda: " + tienda.getIdTienda() + ", Dirección: " + tienda.getDireccion() + ", Representante: " + tienda.getRepresentante());
+            System.out.println("ID Tienda: " + tienda.getIdTienda() + ", Dirección: "
+                    + tienda.getDireccion() + ", Representante: " + tienda.getRepresentante());
         }
     }
 
