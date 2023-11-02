@@ -80,7 +80,7 @@ public class SwapiTest {
     }
 
     @Test
-    public void testPlanetUrlConsistency() {
+    public void testPlanetUrl() {
         String lastFilmUrl = peopleResponse.jsonPath().getString("films[-1]");
 
         Response filmResponse = given()
