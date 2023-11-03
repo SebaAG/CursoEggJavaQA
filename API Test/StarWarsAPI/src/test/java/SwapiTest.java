@@ -54,7 +54,7 @@ public class SwapiTest {
     }
 
     @Test
-    public void testFirstPlanetLastFilm() {
+    public void testFirstPlanetEndpoint() {
         String lastFilmUrl = peopleResponse.jsonPath().getString("films[-1]");
 
         Response filmResponse = given()
@@ -80,7 +80,7 @@ public class SwapiTest {
     }
 
     @Test
-    public void testPlanetUrl() {
+    public void testPlanetUrlEndpoint() {
         String lastFilmUrl = peopleResponse.jsonPath().getString("films[-1]");
 
         Response filmResponse = given()
